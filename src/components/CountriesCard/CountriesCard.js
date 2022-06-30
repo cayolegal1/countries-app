@@ -1,5 +1,7 @@
 import React from 'react'
 import './index.css'
+import './mediaqueries.css'
+
 
 export const CountriesCard = ({countries}) => {
   return (
