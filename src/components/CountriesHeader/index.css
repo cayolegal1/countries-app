@@ -1,0 +1,44 @@
+header {
+
+    display: flex;
+    align-items: center;
+    background-color: #2c3743;
+    height: 4rem;
+    justify-content: space-between;
+}
+
+span {
+
+    color: #f8f9fd;
+    font-weight: 800;
+    padding: 3%;
+}
+
+img {
+
+    width: 5%;
+    cursor: pointer;
+}
+
+button {
+
+    background-color: #2c3743;
+    border: none;
+    color: #f8f9fd;
+    padding-right: 3%;
+}
+
+@media only screen and (max-width: 500px) {
+    
+
+    header {
+
+        justify-content: space-between;
+    }
+
+    span {
+
+        font-size: 14px;
+        padding: 3%;
+    }
+}
