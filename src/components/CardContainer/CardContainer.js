@@ -7,14 +7,12 @@ export const CardContainer =  ({countries, setCountries}) => {
 
   return (
 
-    <>
     <section className='container' >
 
       {countries.map(item => <CountriesCard countries={item} key={item.name} />)}
 
     </section >
 
-    </>
   )
   
 }

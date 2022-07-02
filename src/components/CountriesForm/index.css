@@ -60,3 +60,13 @@ select {
     }
     
 }
+
+@media screen and (min-width: 501px) and (max-width: 1000px) {
+
+    input {
+
+        padding: 2%;
+        width: 40%;
+    }
+    
+}
