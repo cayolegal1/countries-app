@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import axios from 'axios'
 import CountryDetail from './components/CountryDetail'
+import Countries from './containers/Countries'
 
 function App() {
 
@@ -16,14 +17,14 @@ function App() {
     }
     if (!countries.length)
       helper().catch(err => console.log(err))
-  },[countries])
+  },[countries.length])
 
   return (
       <BrowserRouter>
         <Routes>
-          <Route path='/:name' element={<CountryDetail countries={countries}/>}/>
+          <Route path='/' element={<Countries countries={countries}/>}/>
+          <Route path='/:name' element={<CountryDetail />}/>
         </Routes>
-        <Link to="/argentina" >argentina</Link>
       </BrowserRouter>
 
   )

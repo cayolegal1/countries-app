@@ -1,16 +1,14 @@
-import { memo, useMemo } from "react"
-import { useParams } from "react-router-dom"
+import { memo} from "react"
+import { useLocation} from "react-router-dom"
 
 
-const CountryDetail = ({countries})=>{
+const CountryDetail = ()=>{
 
-    const {name} = useParams()
-    
-    const infoCountry = useMemo(()=> countries?.filter(({name:{common}}) => common.toLowerCase()===name),[countries, name]) 
+    const {state} = useLocation()
 
     return (
         <div>
-            {JSON.stringify(infoCountry)}
+            {JSON.stringify(state)}
         </div>
     )
 }
