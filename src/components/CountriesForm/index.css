@@ -1,36 +1,85 @@
 section {
 
-    background-color: #1f2d36;
+    
     display: flex;
     justify-content: space-between;
     margin-top: 3rem;
+    transition: 0.5s;
+}
+
+.dark-theme {
+
+    background-color: #1f2d36;
+}
+
+.light-theme {
+
+    background-color: white;
 }
 
 input {
-
-    background-color: #2c3743;
+    
+    background-image: url('../../img/buscar.png');
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    background-size: 20px;
+    display: flex;
+    align-items: center;
     border: none;
     border-radius: 10px;
-    box-shadow: -1px 0px 7.5px -2px rgb(0 0 0 / 82%);
-    color: #f8f9fd;
     margin-left: 3%;
     padding: 1%;  
+    transition: 0.5s;
     width: 30%;
 }
 
-input::placeholder {
+.dark {
+
+    background-blend-mode: difference;
+    background-color: #2c3743;
+    box-shadow: -1px 0px 7.5px -2px rgb(0 0 0 / 82%);
+    color: #f8f9fd;
+}
+
+.dark::placeholder {
 
     color: #f8f9fd;;
 }
 
+.light::placeholder {
+
+    color: #080909;
+}
+
+.light {
+
+    background-color: rgb(254 255 255);
+    background-blend-mode: 'initial';
+    border: 1px solid #685f5f45;
+    color: #080909;
+
+}
+
 select {
 
-    background-color: #2c3743;
     border: none;
     border-radius: 7px;
     box-shadow: -1px 0px 7.5px -2px rgb(0 0 0 / 82%);
-    color: #f8f9fd;
     margin-right: 4%;
+    transition: 0.5s;
+}
+
+.select-dark {
+
+    background-color: #2c3743;
+    color: #f8f9fd;
+}
+
+.select-light {
+
+    background-color: white;
+    box-shadow: none;
+    border: 1px solid #6f696945;
 }
 
 

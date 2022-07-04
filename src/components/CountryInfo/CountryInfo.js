@@ -1,29 +1,33 @@
-import React, {useState, useEffect} from 'react'
-import { useLocation } from 'react-router-dom'
-import { getCountryByName } from '../../helpers/getCountries'
+import React, {} from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import './index.css'
 
-export const CountryInfo = ({paises}) => {
-
-  const [country, setcountry] = useState([])
-  const {pathname} = useLocation()
-  const countryPath = pathname.slice(1) 
-  console.log(countryPath)
-  useEffect(() => {
-    
-    const getData = async () => {
+const CountryInfo = ({theme}) => {
       
-      const req = await getCountryByName(countryPath)
-      console.log(req)
-      setcountry(req)
-    }
+  const {state: {countries}} = useLocation()
+  const navigate = useNavigate()
 
-    getData()
-
-  }, [countryPath])
-  
   return (
     <>
-    {country.map(item => <h1>{item.name}</h1>)}
+      <button onClick={()=> navigate('/')} className='goBackButton'>⬅️ Back</button>
+      <section className='countryInfoContainer'>
+        <div>
+          <img src={countries.flagImage} alt={countries.name}/>
+        </div>
+
+        <article className='generalInfo'>
+          <h3>{countries.name}</h3>
+          <p>Native Name: <span>{countries.name}</span></p>
+          <p>Population: <span>{countries.population}</span></p>
+          <p>Region: <span>{countries.region}</span></p>
+          <p>Capital: <span>{countries.capital}</span></p>
+          <p>Area: <span>{countries.area}</span></p>
+          <p>TimeZone: <span>{countries.timezone[0]}</span></p>
+          <p>Latitude: <span>{countries.latlong[0]}</span></p>
+          <p>Longitude: <span>{countries.latlong[1]}</span></p>
+          <p>Independent: <span>{countries.independent ? 'Yes' : 'No'}</span></p>
+        </article>
+      </section>
     </>
   )
 }

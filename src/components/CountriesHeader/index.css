@@ -5,30 +5,99 @@ header {
     background-color: #2c3743;
     height: 4rem;
     justify-content: space-between;
+    transition: 0.5s;
 }
 
-span {
+.header-dark {
 
-    color: #f8f9fd;
-    font-weight: 800;
-    padding: 3%;
+    background-color: #2c3743;
 }
 
-img {
+.header-light {
 
-    width: 5%;
+    background-color: white;
+    border-bottom: 2.5px solid rgb(242 231 231 / 65%);
+}
+
+.header-container, .buttonThemes {
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.sun, .moon {
+
     cursor: pointer;
 }
 
-button {
+.sun {
 
-    background-color: #2c3743;
-    border: none;
-    color: #f8f9fd;
-    padding-right: 3%;
+    width: 3%;
+    padding-right: 1.5%;
 }
 
-@media only screen and (max-width: 500px) {
+.moon {
+
+    width: 7%;
+    padding-right: 4%;
+}
+
+header .header-text {
+
+    
+    font-weight: 800;
+    padding: 3%;
+    transition: 1.5s;
+}
+
+.header-text-dark {
+
+    color: #f8f9fd;
+}
+
+.header-text-light {
+
+    color: #080909;
+
+}
+
+
+button {
+ 
+    border: none;
+    padding-right: 3%;
+    transition: 0.5s;
+}
+
+.button-dark {
+
+    background-color: #2c3743;
+    color: #f8f9fd;
+
+}
+
+.button-light {
+
+    background-color: white;
+    color: #080909;
+}
+
+@media screen and (min-width: 501px) and (max-width: 800px) {
+    
+
+    .header-container {
+
+        width: 60%;
+    }
+
+    .sun {
+
+        width: 4.5%;
+    }
+}
+
+@media screen and (max-width: 500px) {
     
 
     header {
@@ -36,9 +105,40 @@ button {
         justify-content: space-between;
     }
 
+    .header-container {
+
+        width: 100%;
+    }
+
+    .header-text {
+
+        width: 100%;
+    }
+
     span {
 
         font-size: 14px;
         padding: 3%;
+    }
+
+    .sun {
+
+        width: 4.5%;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 499px) {
+    
+
+    .sun {
+
+        width: 8.5%;
+    }
+
+    .moon {
+
+        width: 7%;
+        padding-right: 1%;
     }
 }

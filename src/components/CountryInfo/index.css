@@ -1,0 +1,120 @@
+.goBackButton {
+
+    display: flex;
+    cursor: pointer;
+    margin: 3% 5%;
+    width: 9%;
+    padding: 0.5% 2.5%;
+    border-radius: 5px;
+}
+
+.countryInfoContainer {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1%;
+    margin-top: 1rem;
+}
+
+
+.countryInfoContainer div {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.generalInfo {
+
+    border-left: 1px solid;
+    padding-left: 5%;
+}
+
+.countryInfoContainer div, .generalInfo {
+
+    color: #f8f9fd;
+}
+
+.countryInfoContainer div img {
+
+    border-radius: 10px;
+    height: 50vh;
+    width: 70%;
+}
+
+.countryInfoContainer article p {
+
+   font-weight: 600;
+}
+
+.countryInfoContainer article p span {
+
+    font-weight: 300;
+    padding: 1%;
+ }
+
+
+@media screen and (max-width: 550px) {
+    
+
+    .countryInfoContainer {
+        padding: 5%;
+        display: flex;
+        margin-top: 0;
+        flex-direction: column;
+    }
+
+    .countryInfoContainer div:first-child {
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .countryInfoContainer article {
+
+        margin-left: 18%;
+        margin-top: 10%;
+    }
+
+    .countryInfoContainer div img {
+
+        height: 28vh;
+    }
+
+    .goBackButton {
+
+        margin: 10% 5%;
+        width: 33%;
+        padding: 2%;
+        border-radius: 6px;
+        justify-content: center;
+    }
+
+    .generalInfo {
+
+        border-left: none;
+    }
+}
+
+@media screen and (min-width: 551px) and (max-width: 950px) {
+    
+
+    .countryInfoContainer {
+
+        grid-template-columns: 1.8fr 1fr;
+    }
+
+    .countryInfoContainer div img {
+
+        height: 35vh;
+    }
+
+    .generalInfo {
+
+        border: none;
+    }
+
+}
+
+
+

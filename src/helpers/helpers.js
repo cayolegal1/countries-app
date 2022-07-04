@@ -12,10 +12,16 @@ export const getElements = async (request) => {
       let data = element.map(item => ({
   
           name: item.name.common, 
+          nativeName: item.name.nativeName,
           capital: item.capital,
           population: item.population, 
           region: item.subregion,
-          flagImage: item.flags.svg
+          flagImage: item.flags.svg,
+          area: item.area, 
+          languages: item.languages,
+          timezone: item.timezones, 
+          independent: item.independent,
+          latlong: item.latlng
       
         }))
   
