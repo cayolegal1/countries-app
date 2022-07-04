@@ -1,6 +1,5 @@
 .container {
 
-    background-color: #1f2d36;
     display: grid;
     column-gap: 5%;
     grid-template-columns: repeat(4, 1fr);
@@ -8,6 +7,17 @@
     margin: 0;
     padding: 8%;
     row-gap: 4rem;
+    transition: 0.5s;
+}
+
+.container-light {
+
+    background-color: white;
+}
+
+.container-dark {
+
+    background-color: #1f2d36;
 }
 
 @media screen and (max-width: 550px) {

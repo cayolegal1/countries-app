@@ -90,7 +90,7 @@ const CountriesForm = ({theme}) => {
 
     </section>  
 
-    <CardContainer countries={filterCountries} theme={theme} />
+    <CardContainer countries={filterCountries}  theme={theme} />
 
     </>
   )

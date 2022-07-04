@@ -10,18 +10,18 @@ export const CountriesCard = ({countries, theme}) => {
   const navigate = useNavigate()
   return (
 
-      <article className='card'>
+      <article className={theme ? 'card card-dark' : 'card card-light'} id={theme ? '' : 'card-light'}>
           <div>
             <img    
             src={countries.flagImage} 
             alt={countries.name} 
-            className='countryImage' 
+            className={theme ? 'countryImage country-dark' : 'countryImage country-light'} 
 
             onClick={() => navigate(`/${countries.name.toLowerCase()}`, {state: {countries}})}
             />
           </div>
 
-        <div className='countriesInfo'>
+        <div className={theme ? 'countriesInfo card-dark' : 'countriesInfo card-light info-light'}>
             <h4>{countries.name}</h4>
             <p>Population: <span> {countries.population} </span> </p>
             <p>Region: <span> {countries.region} </span> </p>

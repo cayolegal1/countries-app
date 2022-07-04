@@ -8,6 +8,19 @@
     border-radius: 5px;
 }
 
+.goBackButton-dark {
+
+    background-color: #2c3743;
+    color: #f8f9fd;
+}
+
+.goBackButton-light {
+
+    background-color: white;
+    box-shadow: 1px 1px 7px -2px rgb(0 0 0 / 82%);
+    color: #080909;
+}
+
 .countryInfoContainer {
 
     display: grid;
@@ -30,7 +43,12 @@
     padding-left: 5%;
 }
 
-.countryInfoContainer div, .generalInfo {
+.generalInfo-light {
+
+    color:#080909 ;
+}
+
+.generalInfo-dark {
 
     color: #f8f9fd;
 }

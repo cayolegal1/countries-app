@@ -9,13 +9,19 @@ const CountryInfo = ({theme}) => {
 
   return (
     <>
-      <button onClick={()=> navigate('/')} className='goBackButton'>⬅️ Back</button>
+      <button 
+      onClick={()=> navigate('/')}
+      className={theme ? 'goBackButton goBackButton-dark' : 'goBackButton goBackButton-light'}
+      >
+      ⬅️ Back
+      </button>
+      
       <section className='countryInfoContainer'>
         <div>
           <img src={countries.flagImage} alt={countries.name}/>
         </div>
 
-        <article className='generalInfo'>
+        <article className={theme ? 'generalInfo generalInfo-dark' : 'generalInfo generalInfo-light'}>
           <h3>{countries.name}</h3>
           <p>Native Name: <span>{countries.name}</span></p>
           <p>Population: <span>{countries.population}</span></p>
