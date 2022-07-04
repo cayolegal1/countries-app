@@ -10,12 +10,14 @@ function App() {
 
   const [theme, setTheme] = useState(true)
 
+  const paths = '/countries-app' || 'cayolegal1.github.io/countries-app/'
+
   return (
       <>
         <CountriesHeader theme={theme} setTheme={setTheme}/>
         <BrowserRouter>
           <Routes>
-            <Route path='/countries-app' element={<CountriesForm theme={theme}/>} />
+            <Route path={paths}  element={<CountriesForm theme={theme}/>} />
             <Route path='/:name' element={<CountryInfo  theme={theme}/>} />
             <Route path='*' element={<h1> Not found 404</h1>} />
           </Routes> 
