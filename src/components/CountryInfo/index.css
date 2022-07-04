@@ -72,6 +72,25 @@
  }
 
 
+@media screen and (min-width: 200px) and (max-width: 299px) {
+    
+
+    .countryInfoContainer {
+
+        margin: auto;
+    }
+
+    .sun {
+
+        width: 9.5%;
+    }
+
+    .countryInfoContainer div img {
+
+        width: 85%;
+    }
+}
+
 @media screen and (max-width: 550px) {
     
 
@@ -134,5 +153,13 @@
 
 }
 
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+    
+    .countryInfoContainer {
+
+        grid-template-columns: 2fr 1fr !important;
+    }
+}
 
 
