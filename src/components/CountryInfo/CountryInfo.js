@@ -10,7 +10,7 @@ const CountryInfo = ({theme}) => {
   return (
     <>
       <button 
-      onClick={()=> navigate('/')}
+      onClick={()=> navigate('/countries-app')}
       className={theme ? 'goBackButton goBackButton-dark' : 'goBackButton goBackButton-light'}
       >
       ⬅️ Back
