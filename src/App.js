@@ -10,7 +10,6 @@ function App() {
 
   const [theme, setTheme] = useState(true)
 
-  const paths = '/countries-app' || '/cayolegal1.github.io/countries-app/'
 
   return (
       <>
