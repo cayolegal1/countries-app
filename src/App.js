@@ -17,7 +17,7 @@ function App() {
         <CountriesHeader theme={theme} setTheme={setTheme}/>
         <BrowserRouter>
           <Routes>
-            <Route path={paths}  element={<CountriesForm theme={theme}/>} />
+            <Route path={'/'}  element={<CountriesForm theme={theme}/>} />
             <Route path='/:name' element={<CountryInfo  theme={theme}/>} />
             <Route path='*' element={<h1> Not found 404</h1>} />
           </Routes> 
