@@ -1,13 +1,11 @@
-import React from 'react'
 import { useNavigate }  from 'react-router-dom'
-//import CountryInfo from '../CountryInfo/CountryInfo'
 import './index.css'
 import './mediaqueries.css'
 
-
-export const CountriesCard = ({countries, theme}) => {
+const CountriesCard = ({countries, theme}) => {
 
   const navigate = useNavigate()
+
   return (
 
       <article className={theme ? 'card card-dark' : 'card card-light'} id={theme ? '' : 'card-light'}>

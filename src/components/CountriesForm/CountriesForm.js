@@ -1,29 +1,12 @@
-import React, {useState, useEffect, useMemo} from 'react'
-import CardContainer from '../CardContainer/CardContainer'
-import {getAllCountries ,getCountryByRegion } from '../../helpers/getCountries'
+import { Children, cloneElement } from 'react'
+import {useState, useEffect, useMemo} from 'react'
+import {getAllCountries, getCountryByRegion } from '../../helpers/getCountries'
 import './index.css'
 
-const CountriesForm = ({theme}) => {
+const CountriesForm = ({theme, children}) => {
 
   const [countries, setCountries] = useState([])
   const [search, setSearch] = useState('')
-
-  const handlerFunction = async () => {
-
-    const data = localStorage.getItem('countries') || [];
-    const dataStorage = typeof data === "string" ? JSON.parse(data) : '';
-
-    if(dataStorage.length === 0) {
-
-      const allCountries = await getAllCountries()
-      setCountries(allCountries)
-      localStorage.setItem('countries', JSON.stringify(allCountries))
-      return
-    }
-
-    setCountries(dataStorage)
-    return
-  }
 
   const filterElements = (e) => {
 
@@ -38,27 +21,38 @@ const CountriesForm = ({theme}) => {
     setCountries(data)
   }
 
-  useEffect(() => {
-
-    
-    handlerFunction()
-    
-  } , [])
-
-
-  useEffect(() => {
-
-    countriesChanger()
-
-  }, [countries])
-
-
   const filteredCountries = useMemo(() => {
 
-    const allCountries = !search.length > 1 ? countries : countries.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+    const allCountries = !search.length > 1 
+                         ? countries 
+                         : countries.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
     return allCountries
 
   }, [search, countries])
+
+  const childrenElements = Children.toArray(children).map(child => cloneElement(child, {filteredCountries, theme}))
+
+  useEffect(() => {
+
+    const handlerFunction = async () => {
+
+      const data = localStorage.getItem('countries') || [];
+      const dataStorage = typeof data === "string" ? JSON.parse(data) : '';
+  
+      if(dataStorage.length === 0) {
+  
+        const allCountries = await getAllCountries()
+        setCountries(allCountries)
+        localStorage.setItem('countries', JSON.stringify(allCountries))
+        return
+      }
+  
+      setCountries(dataStorage)
+    }
+  
+    handlerFunction()
+    
+  }, [])
 
   return (
 
@@ -89,7 +83,7 @@ const CountriesForm = ({theme}) => {
 
       </section>  
 
-      <CardContainer countries={filteredCountries}  theme={theme} />
+      {childrenElements}
 
     </>
   )

@@ -5,28 +5,29 @@ const sortData = (firstEl, secondEl) => {
     else return 0
   }
   
-export const getElements = async (request) => {
+const getElements = async (request) => {
   
-      const element = await request.json()
-      
-      let data = element.map(item => ({
-  
-          name: item.name.common, 
-          nativeName: item.name.nativeName,
-          capital: item.capital,
-          population: item.population, 
-          region: item.subregion,
-          flagImage: item.flags.svg,
-          area: item.area, 
-          languages: item.languages,
-          timezone: item.timezones, 
-          independent: item.independent,
-          latlong: item.latlng
-      
-        }))
-  
-        data.sort(sortData)
-  
-        return data 
+    const element = await request.json()
+    
+    let data = element.map(item => ({
+
+        name: item.name.common, 
+        nativeName: item.name.nativeName,
+        capital: item.capital,
+        population: item.population, 
+        region: item.subregion,
+        flagImage: item.flags.svg,
+        area: item.area, 
+        languages: item.languages,
+        timezone: item.timezones, 
+        independent: item.independent,
+        latlong: item.latlng
+    
+      }))
+
+    data.sort(sortData)
+
+    return data 
   }
 
+export {getElements}

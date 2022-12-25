@@ -1,0 +1,13 @@
+useRef es un Hook de React que sirve para poder almacenar variables o usar cosas como un document.querySelector o un document.getElementById pero con React. Podemos usarlo por ejemplo de la siguiente manera, definimos una variable cualquiera donde la inicializamos con useRef, este tiene que recibir un valor inicial que puede ser cualquier cosa 
+
+    import {useRef} from 'react'
+
+    const miVariable = useRef('Hola')
+
+    return()
+
+Esta inicialización de la variable lo que hace es crear un objeto, si hacemos console.log de miVariable nos arroja este resultado
+
+    {current: 'Hola'}
+
+Entonces podemos decir que al inicializar una variable con useRef nos devuelve un objeto, el cual si pasamos un valor inicial podemos acceder a el con la propiedad current
