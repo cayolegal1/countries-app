@@ -1,42 +1,70 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'
-import './index.css'
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import "./index.css";
 
-const CountryInfo = ({theme}) => {
-    
-  const {state: {countries}} = useLocation();
+const CountryInfo = ({ theme }) => {
+  const {
+    state: { country = {} },
+  } = useLocation();
   const navigate = useNavigate();
 
-    return (
-      <>
-        <button 
-          onClick={()=> navigate('/')}
-          className={theme ? 'goBackButton goBackButton-dark' : 'goBackButton goBackButton-light'}>
-  
+  return (
+    <>
+      <button
+        onClick={() => navigate("/")}
+        className={
+          theme
+            ? "goBackButton goBackButton-dark"
+            : "goBackButton goBackButton-light"
+        }
+      >
         ⬅️ Back
-  
-        </button>
-        
-        <section className='countryInfoContainer'>
-          <div>
-            <img src={countries.flagImage} alt={countries.name}/>
-          </div>
-  
-          <article className={theme ? 'generalInfo generalInfo-dark' : 'generalInfo generalInfo-light'}>
-            <h3>{countries.name}</h3>
-            <p>Native Name: <span>{countries.name}</span></p>
-            <p>Population: <span>{countries.population}</span></p>
-            <p>Region: <span>{countries.region}</span></p>
-            <p>Capital: <span>{countries.capital}</span></p>
-            <p>Area: <span>{countries.area}</span></p>
-            <p>TimeZone: <span>{countries.timezone[0]}</span></p>
-            <p>Latitude: <span>{countries.latlong[0]}</span></p>
-            <p>Longitude: <span>{countries.latlong[1]}</span></p>
-            <p>Independent: <span>{countries.independent ? 'Yes' : 'No'}</span></p>
-          </article>
-        </section>
-      </>
-   )
-}
+      </button>
 
-export default CountryInfo
+      <section className="countryInfoContainer">
+        <div>
+          <img src={country.flagImage} alt={country.name} />
+        </div>
+
+        <article
+          className={
+            theme
+              ? "generalInfo generalInfo-dark"
+              : "generalInfo generalInfo-light"
+          }
+        >
+          <h3>{country.name}</h3>
+          <p>
+            Native Name: <span>{country.name}</span>
+          </p>
+          <p>
+            Population: <span>{country.population}</span>
+          </p>
+          <p>
+            Region: <span>{country.region}</span>
+          </p>
+          <p>
+            Capital: <span>{country.capital}</span>
+          </p>
+          <p>
+            Area: <span>{country.area}</span>
+          </p>
+          <p>
+            TimeZone: <span>{country.timezone[0]}</span>
+          </p>
+          <p>
+            Latitude: <span>{country.latlong[0]}</span>
+          </p>
+          <p>
+            Longitude: <span>{country.latlong[1]}</span>
+          </p>
+          <p>
+            Independent: <span>{country.independent ? "Yes" : "No"}</span>
+          </p>
+        </article>
+      </section>
+    </>
+  );
+};
+
+export default CountryInfo;
