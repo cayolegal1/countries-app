@@ -1,15 +1,19 @@
 import CountriesCard from "../CountryCard/CountryCard";
 import "./index.css";
 
-const CardContainer = ({ filteredCountries, theme }) => {
+const CardContainer = ({ filteredCountries, isThemeDark }) => {
   return (
     <section
       className={
-        theme ? "container container-dark" : "container container-light"
+        isThemeDark ? "container container-dark" : "container container-light"
       }
     >
       {filteredCountries.map((country) => (
-        <CountriesCard country={country} key={country.name} theme={theme} />
+        <CountriesCard
+          country={country}
+          key={country.name}
+          isThemeDark={isThemeDark}
+        />
       ))}
     </section>
   );

@@ -1,9 +1,10 @@
+import React from "react";
 import { Children, cloneElement } from "react";
 import { useState, useEffect, useMemo } from "react";
 import "./index.css";
 import { useCountries } from "../../hooks";
 
-const CountriesForm = ({ theme, children }) => {
+const CountriesForm = ({ isThemeDark, children }) => {
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -21,25 +22,24 @@ const CountriesForm = ({ theme, children }) => {
   };
 
   const filteredCountries = useMemo(() => {
-    const allCountries =
-      !search.length > 1
-        ? countries
-        : countries.filter((item) =>
-            item.name.toLowerCase().includes(search.toLowerCase())
-          );
+    const allCountries = !Boolean(search.length > 1)
+      ? countries
+      : countries.filter((item) =>
+          item.name.toLowerCase().includes(search.toLowerCase())
+        );
     return allCountries;
   }, [search, countries]);
 
   const childrenElements = Children.toArray(children).map((child) =>
-    cloneElement(child, { filteredCountries, theme })
+    cloneElement(child, { filteredCountries, isThemeDark })
   );
 
   useEffect(() => {
     const handlerFunction = async () => {
-      const data = localStorage.getItem("countries") || [];
+      const data = localStorage.getItem("countries");
       const dataStorage = typeof data === "string" ? JSON.parse(data) : "";
 
-      if (dataStorage.length === 0) {
+      if (!dataStorage) {
         const allCountries = await getAllCountries();
         setCountries(allCountries);
         localStorage.setItem("countries", JSON.stringify(allCountries));
@@ -54,20 +54,22 @@ const CountriesForm = ({ theme, children }) => {
 
   return (
     <>
-      <section className={theme ? "dark-theme" : "light-theme"}>
+      <section
+        className={isThemeDark ? "dark-isThemeDark" : "light-isThemeDark"}
+      >
         <input
           type={"text"}
           placeholder="Search for a country..."
           name="countrySearcher"
           onChange={filterElements}
           value={search}
-          className={theme ? "dark" : "light"}
+          className={isThemeDark ? "dark" : "light"}
         />
 
         <select
           onChange={countriesChanger}
           defaultValue={"default"}
-          className={theme ? "select-dark" : "select-light"}
+          className={isThemeDark ? "select-dark" : "select-light"}
         >
           <option value={"default"} disabled>
             Filter by Region

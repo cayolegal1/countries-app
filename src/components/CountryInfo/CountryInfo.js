@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./index.css";
 
-const CountryInfo = ({ theme }) => {
+const CountryInfo = ({ isThemeDark }) => {
   const {
     state: { country = {} },
   } = useLocation();
@@ -13,7 +13,7 @@ const CountryInfo = ({ theme }) => {
       <button
         onClick={() => navigate("/")}
         className={
-          theme
+          isThemeDark
             ? "goBackButton goBackButton-dark"
             : "goBackButton goBackButton-light"
         }
@@ -28,7 +28,7 @@ const CountryInfo = ({ theme }) => {
 
         <article
           className={
-            theme
+            isThemeDark
               ? "generalInfo generalInfo-dark"
               : "generalInfo generalInfo-light"
           }

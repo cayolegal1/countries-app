@@ -2,20 +2,22 @@ import { useNavigate } from "react-router-dom";
 import "./index.css";
 import "./mediaqueries.css";
 
-const CountriesCard = ({ country, theme }) => {
+const CountriesCard = ({ country, isThemeDark }) => {
   const navigate = useNavigate();
 
   return (
     <article
-      className={theme ? "card card-dark" : "card card-light"}
-      id={theme ? "" : "card-light"}
+      className={isThemeDark ? "card card-dark" : "card card-light"}
+      id={isThemeDark ? "" : "card-light"}
     >
       <div>
         <img
           src={country.flagImage}
           alt={country.name}
           className={
-            theme ? "countryImage country-dark" : "countryImage country-light"
+            isThemeDark
+              ? "countryImage country-dark"
+              : "countryImage country-light"
           }
           onClick={() =>
             navigate(`/${country.name.toLowerCase()}`, { state: { country } })
@@ -25,7 +27,7 @@ const CountriesCard = ({ country, theme }) => {
 
       <div
         className={
-          theme
+          isThemeDark
             ? "countriesInfo card-dark"
             : "countriesInfo card-light info-light"
         }
