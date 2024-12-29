@@ -40,6 +40,7 @@
       "last 1 safari version"
     ]
   },
+  "homepage": "https://cayolegal1.github.io/countries-app/",
   "devDependencies": {
     "gh-pages": "^4.0.0"
   },
