@@ -43,10 +43,10 @@
   "homepage": "https://cayolegal1.github.io/countries-app/",
   "devDependencies": {
     "gh-pages": "^4.0.0"
-  },
+  }, 
 
   "engines": {
 
-    "node": "17.5.0"
+    "node": "22.0.0"
   }
 }
