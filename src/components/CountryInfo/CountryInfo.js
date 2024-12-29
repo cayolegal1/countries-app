@@ -3,11 +3,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./index.css";
 
 const CountryInfo = ({ isThemeDark }) => {
-  const {
-    state: { country = {} },
-  } = useLocation();
+  const { state: { country = {} } = {} } = useLocation();
   const navigate = useNavigate();
-
+  if (!country) return null;
   return (
     <>
       <button
